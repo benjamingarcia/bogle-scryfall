@@ -1,0 +1,12 @@
+= Bogle-scryfall
+
+== Simple Telegram bot
+
+Bogle is a simple bot to ask some information at scryfall about MTG cards by telegram command
+
+== Tools 
+
+* Gradle
+* Scala
+* Telegram bot API
+* Scryfall API
