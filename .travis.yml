@@ -27,7 +27,7 @@ jobs:
    - stage: compile
    - script:
       - ./gradlew build --scan -s
-   - stage: assemble 
+   - stage: assemblee 
    - script:
       - ./gradlew distZip
    
