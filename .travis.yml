@@ -18,16 +18,14 @@ before_script:
  - git status
 
 
-stage:
- - compile
- - assemblee
-
 jobs:
  - include:
-   - stage: compile
-   - script:
+   - stage: "Compile"
+     name: "Compile step"
+     script:
       - ./gradlew build --scan -s
-   - stage: assemblee 
-   - script:
+   - stage: "Dist"
+     name: "Distribute Zip" 
+     script:
       - ./gradlew distZip
    
