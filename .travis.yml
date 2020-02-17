@@ -19,12 +19,14 @@ before_script:
 
 
 jobs:
- - include:
+ include:
    - stage: "Compile"
      name: "Compile step"
-     script: ./gradlew build --scan -s
+     script:
+      - ./gradlew build --scan -s
    - stage: "Dist"
      name: "Distribute" 
-     script: ./gradlew distZip
-     script: ./gradlew distTar
+     script:
+      - ./gradlew distZip
+      - ./gradlew distTar
    
