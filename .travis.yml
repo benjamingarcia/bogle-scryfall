@@ -1,0 +1,13 @@
+language: java
+install": true
+
+os: linux
+dist: trusty
+jdk: oraclejdk12
+
+before_script:
+ - git status
+
+
+script:
+ - ./gradlew build --scan -s
