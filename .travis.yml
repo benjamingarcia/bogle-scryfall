@@ -17,7 +17,9 @@ jobs:
      script:
       - ./gradlew build --scan -s
    - stage: "Dist"
-     name: "Distribute" 
    - script: ./gradlew distZip
    - script: ./gradlew distTar
+   - stage: "YAS"
+     script: 
+        - pwd 
    
