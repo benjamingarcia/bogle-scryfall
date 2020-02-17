@@ -5,9 +5,29 @@ os: linux
 dist: trusty
 jdk: oraclejdk12
 
+before_cache:
+ - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+ - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+
 before_script:
  - git status
 
 
-script:
- - ./gradlew build --scan -s
+stage:
+ - compile
+ - assemblee
+
+jobs:
+ - include:
+   - stage: compile
+   - script:
+      - ./gradlew build --scan -s
+   - stage: assemble 
+   - script:
+      - ./gradlew distZip
+   
