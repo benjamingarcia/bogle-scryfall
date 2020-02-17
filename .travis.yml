@@ -25,7 +25,8 @@ jobs:
      script:
       - ./gradlew build --scan -s
    - stage: "Dist"
-     name: "Distribute Zip" 
+     name: "Distribute" 
      script:
       - ./gradlew distZip
+      - ./gradlew distTar
    
