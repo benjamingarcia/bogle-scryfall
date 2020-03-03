@@ -1,0 +1,27 @@
+language: java
+install: true
+
+os: linux
+dist: trusty
+jdk: oraclejdk12
+
+before_cache:
+ - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+ - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+
+
+before_script:
+ - git status
+
+
+jobs:
+ include:
+   - stage: "tests conditions"
+     if: head_branch = master
+     script: echo "travis!!!"
+   
