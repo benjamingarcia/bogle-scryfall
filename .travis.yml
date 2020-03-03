@@ -21,14 +21,7 @@ before_script:
 
 jobs:
  include:
-   - stage: "Compile"
-     name: "Compile step"
-     script:
-      - ./gradlew build --scan -s
-   - stage: "Dist"
-   - script: ./gradlew distZip
-   - script: ./gradlew distTar
-   - stage: "YAS"
-     script: 
-        - pwd 
+   - stage: "tests conditions"
+     if: head_branch = master
+     script: echo "travis!!!"
    
